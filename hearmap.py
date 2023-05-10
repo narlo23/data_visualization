@@ -32,7 +32,7 @@ sns.lineplot(x="Year", y="Life expectancy ", data=first_country, color='royalblu
 sns.lineplot(x="Year", y="Life expectancy ", data=second_country, color='coral', label='Iceland')
 sns.lineplot(x="Year", y="Life expectancy ", data=third_country, color='mediumspringgreen', label='Switzerland')
 sns.lineplot(x="Year", y="Life expectancy ", data=fourth_country, color='mediumvioletred', label='Sweden')
-plt.title("Life expectancy changes in the top 5 countries(As of 2000)")
+plt.title("Life expectancy changes in the top 4 countries(As of 2000)")
 
 plt.subplot(122)
 country_1st=life_expectancy[life_expectancy["Country"]=='Malawi']
@@ -43,7 +43,7 @@ sns.lineplot(x="Year", y="Life expectancy ", data=country_1st, color='deepskyblu
 sns.lineplot(x="Year", y="Life expectancy ", data=country_2nd, color='pink', label='Zambia')
 sns.lineplot(x="Year", y="Life expectancy ", data=country_3rd, color='gold', label='Angola')
 sns.lineplot(x="Year", y="Life expectancy ", data=country_4th, color='mediumslateblue', label='Uganda')
-plt.title("Life expectancy changes in the lower 5 countries(As of 2000)")
+plt.title("Life expectancy changes in the lower 4 countries(As of 2000)")
 
 plt.show()          #4-2
 
@@ -56,8 +56,8 @@ all_data_1=pd.merge(left=current_life_expectancy, right=current_health_expenditu
 all_data_2=pd.merge(left=current_life_expectancy, right=domestic_health_expenditure, on=['Country', 'Year'])
 
 fig = plt.figure(figsize=(10,6))
-sns.regplot("Life expectancy ", "Value", data=all_data_1, label='Current health expenditure (% of GDP)')
-sns.regplot("Life expectancy ", "Value", data=all_data_2, label='Domestic general government health expenditure (% of total government expenditure)')
+sns.regplot(x="Life expectancy ", y="Value", data=all_data_1, label='Current health expenditure (% of GDP)')
+sns.regplot(x="Life expectancy ", y="Value", data=all_data_2, label='Domestic general government health expenditure (% of total government expenditure)')
 plt.title("Life expectancy and health")
 fig.legend(labels=['CHE(% of GDP)', 'GGHE(% of total government expenditure)'])
 plt.show()          #3-1
